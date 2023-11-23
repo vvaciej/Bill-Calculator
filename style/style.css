@@ -20,7 +20,7 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-top: 145px;
   flex-direction: column;
   row-gap: 60px;
   background-color: hsl(185, 41%, 84%);
@@ -168,6 +168,11 @@ button.selected {
   flex-direction: column;
   position: relative;
 }
+@media (max-width: 700px) {
+  .main-left-top {
+    margin-bottom: 20px;
+  }
+}
 .main-left-top img {
   position: absolute;
   top: 44px;
@@ -224,6 +229,12 @@ button.selected {
 
 .main-left-bottom {
   position: relative;
+}
+@media (max-width: 700px) {
+  .main-left-bottom {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 .main-left-bottom input {
   width: 100%;
@@ -314,17 +325,20 @@ button.selected {
 }
 
 .main-right-bottom .reset-btn {
-  color: hsl(183, 100%, 15%);
+  color: hsl(186, 14%, 29%);
   width: 100%;
   height: 43px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   font-size: 17px;
-  background-color: hsl(172, 67%, 45%);
+  background-color: hsl(183, 100%, 15%);
+  filter: brightness(150%);
   cursor: pointer;
   transition: 0.1s;
 }
 .main-right-bottom .reset-btn:hover {
   transition: 0.1s;
-  filter: brightness(125%);
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(0, 0%, 100%);
+  filter: brightness(95%);
 }/*# sourceMappingURL=style.css.map */
