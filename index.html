@@ -20,23 +20,36 @@
   <main class="container">
     <section class="main-left">
       <section class="main-left-top">
-        <label for="bill">Bill</label>
-        <input onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" id="bill" type="text" placeholder="0"><img src="/image/icon-dollar.svg" alt="dollar">
+        <section class="label-error-section">
+          <label for="">Bill</label>
+          <span class="null-error">Can't be zero</span>
+        </section>
+        <input             
+          onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" 
+          id="bill" class="input input-error" type="text" placeholder="0"><img src="/image/icon-dollar.svg" alt="dollar">
       </section>
       <section class="main-left-mid">
         <label for="">Select Tip %</label>
         <section class="main-left-mid-tips">
-          <button>5%</button>
-          <button>10%</button>
-          <button>15%</button>
-          <button>25%</button>
-          <button>50%</button>
-          <input onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" placeholder="Custom"></input>
+          <button class="tip-5 tipBtn">5%</button>
+          <button class="tip-10 tipBtn">10%</button>
+          <button class="tip-15 tipBtn">15%</button>
+          <button class="tip-25 tipBtn">25%</button>
+          <button class="tip-50 tipBtn">50%</button>
+          <input id="tip-custom" class="input" 
+            onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" 
+            placeholder="Custom">
+        </input>
         </section>
       </section>
       <section class="main-left-bottom">
-        <label for="quantity-people">Numer of People</label>
-        <input onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" type="text" id="quantity-people" placeholder="0"><img src="/image/icon-person.svg" alt="person">
+        <section class="label-error-section">
+          <label for="">Number of People</label>
+          <span class="null-error">Can't be zero</span>
+        </section>
+        <input 
+          onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" 
+          id="quantity-people" class="input input-error" placeholder="0"><img src="/image/icon-person.svg" alt="person">
       </section>
     </section>
     <section class="main-right">
@@ -47,16 +60,16 @@
             <span>/ person</span>
           </section>
           <section class="main-right-top-right">
-            <p>$0.00</p>
+            <p class="tip-text">$0.00</p>
           </section>
         </section>
         <section class="main-right-mid">
           <section class="main-right-top-left">
-            <h6>Tip Amount</h6>
+            <h6>Total</h6>
             <span>/ person</span>
           </section>
           <section class="main-right-top-right">
-            <p>$0.00</p>
+            <p class="total-text">$0.00</p>
           </section>
         </section>
       </section>

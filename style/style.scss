@@ -66,12 +66,15 @@ header {
 }
 
 .main-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 15px;
   @include mobile {
     padding: 10px;
   }
   label {
-    font-size: 15px;
+    font-size: 14px;
     margin-bottom: 8px;
     color: $DarkGrayishCyan;
     font-weight: 700;
@@ -88,7 +91,11 @@ header {
     text-align: right;
     padding-right: 18px;
     position: relative;
-    color: $DarkGrayishCyan;
+    color: $VeryDarkCyan;
+    font-weight: 700;
+    caret-color: $StrongCyan;
+    cursor: text;
+    border: 2px solid transparent;
     &::placeholder {
       opacity: 0.5;
       color: $DarkGrayishCyan;
@@ -99,6 +106,9 @@ header {
     }
     @include mobile {
       font-size: 20px;
+    }
+    &:focus {
+      border: 2px solid $StrongCyan;
     }
   }
 }
@@ -117,10 +127,6 @@ button {
   border-radius: 5px;
   cursor: pointer;
   transition: .1s;
-  &:hover {
-    filter: brightness(130%);
-    transition: .1s;
-  }
   @include tablet {
     font-size: 18px;
   }
@@ -129,19 +135,21 @@ button {
   }
 }
 
+button.selected {
+  background-color: $StrongCyan;
+  transition: .1s;
+  color: $VeryDarkCyan;
+}
+
 .main-left-top {
   display: flex;
   flex-direction: column;
   position: relative;
   img {
     position: absolute;
-    top: 45.5px;
+    top: 44px;
     left: 20px;
   }
-}
-
-.main-left-mid {
-  margin-top: 25px;
 }
 
 .main-left-mid-tips {
@@ -154,22 +162,27 @@ button {
   input {
     width: 100%;
     font-size: 20px;
+    padding-right: 18px;
     &::placeholder {
       width: 100%;
       @include tablet {
         font-size: 18px;
-        padding-left: 6px;
       }
       @include mobile {
         padding-left: 8px;
         text-align: center;
       }
     }
+    @include tablet {
+      padding-right: 10px;
+    }
+    @include mobile {
+      padding-right: 15px;
+    }
   }
 }
 
 .main-left-bottom {
-  margin-top: 28px;
   position: relative;
   input {
     width: 100%;
@@ -178,8 +191,22 @@ button {
   img {
     position: absolute;
     left: 18px;
-    bottom: 16px;
+    bottom: 15px;
   }
+}
+
+.null-error {
+  color: hsl(0, 100%, 80%);
+  font-size: 14px;
+  font-weight: 700;
+  &:not(.active) {
+    display: none;
+  }
+}
+
+.label-error-section {
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-right {
@@ -196,7 +223,7 @@ button {
     margin-top: 20px;
   }
   p {
-    font-size: 45px;
+    font-size: 42px;
     color: $StrongCyan;
     font-weight: 700;
     @include tablet {
@@ -245,14 +272,14 @@ button {
     width: 100%;
     height: 43px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 16px;
+    letter-spacing: 1.5px;
+    font-size: 17px;
     background-color: $StrongCyan;
     cursor: pointer;
     transition: .1s;
     &:hover {
       transition: .1s;
-      opacity: 0.4;
+      filter: brightness(125%);
     }
   }
 }

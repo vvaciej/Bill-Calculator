@@ -75,6 +75,9 @@ body {
 }
 
 .main-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 15px;
 }
 @media (max-width: 700px) {
@@ -83,7 +86,7 @@ body {
   }
 }
 .main-left label {
-  font-size: 15px;
+  font-size: 14px;
   margin-bottom: 8px;
   color: hsl(186, 14%, 43%);
   font-weight: 700;
@@ -99,7 +102,11 @@ body {
   text-align: right;
   padding-right: 18px;
   position: relative;
-  color: hsl(186, 14%, 43%);
+  color: hsl(183, 100%, 15%);
+  font-weight: 700;
+  caret-color: hsl(172, 67%, 45%);
+  cursor: text;
+  border: 2px solid transparent;
 }
 .main-left input::-moz-placeholder {
   opacity: 0.5;
@@ -121,6 +128,9 @@ body {
     font-size: 20px;
   }
 }
+.main-left input:focus {
+  border: 2px solid hsl(172, 67%, 45%);
+}
 
 button {
   width: 100%;
@@ -136,10 +146,6 @@ button {
   cursor: pointer;
   transition: 0.1s;
 }
-button:hover {
-  filter: brightness(130%);
-  transition: 0.1s;
-}
 @media (max-width: 900px) {
   button {
     font-size: 18px;
@@ -151,6 +157,12 @@ button:hover {
   }
 }
 
+button.selected {
+  background-color: hsl(172, 67%, 45%);
+  transition: 0.1s;
+  color: hsl(183, 100%, 15%);
+}
+
 .main-left-top {
   display: flex;
   flex-direction: column;
@@ -158,12 +170,8 @@ button:hover {
 }
 .main-left-top img {
   position: absolute;
-  top: 45.5px;
+  top: 44px;
   left: 20px;
-}
-
-.main-left-mid {
-  margin-top: 25px;
 }
 
 .main-left-mid-tips {
@@ -177,6 +185,7 @@ button:hover {
 .main-left-mid-tips input {
   width: 100%;
   font-size: 20px;
+  padding-right: 18px;
 }
 .main-left-mid-tips input::-moz-placeholder {
   width: 100%;
@@ -187,11 +196,9 @@ button:hover {
 @media (max-width: 900px) {
   .main-left-mid-tips input::-moz-placeholder {
     font-size: 18px;
-    padding-left: 6px;
   }
   .main-left-mid-tips input::placeholder {
     font-size: 18px;
-    padding-left: 6px;
   }
 }
 @media (max-width: 700px) {
@@ -204,9 +211,18 @@ button:hover {
     text-align: center;
   }
 }
+@media (max-width: 900px) {
+  .main-left-mid-tips input {
+    padding-right: 10px;
+  }
+}
+@media (max-width: 700px) {
+  .main-left-mid-tips input {
+    padding-right: 15px;
+  }
+}
 
 .main-left-bottom {
-  margin-top: 28px;
   position: relative;
 }
 .main-left-bottom input {
@@ -216,7 +232,21 @@ button:hover {
 .main-left-bottom img {
   position: absolute;
   left: 18px;
-  bottom: 16px;
+  bottom: 15px;
+}
+
+.null-error {
+  color: hsl(0, 100%, 80%);
+  font-size: 14px;
+  font-weight: 700;
+}
+.null-error:not(.active) {
+  display: none;
+}
+
+.label-error-section {
+  display: flex;
+  justify-content: space-between;
 }
 
 .main-right {
@@ -236,7 +266,7 @@ button:hover {
   }
 }
 .main-right p {
-  font-size: 45px;
+  font-size: 42px;
   color: hsl(172, 67%, 45%);
   font-weight: 700;
 }
@@ -288,13 +318,13 @@ button:hover {
   width: 100%;
   height: 43px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 16px;
+  letter-spacing: 1.5px;
+  font-size: 17px;
   background-color: hsl(172, 67%, 45%);
   cursor: pointer;
   transition: 0.1s;
 }
 .main-right-bottom .reset-btn:hover {
   transition: 0.1s;
-  opacity: 0.4;
+  filter: brightness(125%);
 }/*# sourceMappingURL=style.css.map */
