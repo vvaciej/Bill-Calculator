@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="https://kit.fontawesome.com/b367f4fd12.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700;800&family=Roboto:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="style/style.css">
+  <title>Challenge 14</title>
+</head>
+<body>
+  <header><img src="/image/logo (2).svg" alt="logo"></header>
+  <main class="container">
+    <section class="main-left">
+      <section class="main-left-top">
+        <label for="bill">Bill</label>
+        <input onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" id="bill" type="text" placeholder="0"><img src="/image/icon-dollar.svg" alt="dollar">
+      </section>
+      <section class="main-left-mid">
+        <label for="">Select Tip %</label>
+        <section class="main-left-mid-tips">
+          <button>5%</button>
+          <button>10%</button>
+          <button>15%</button>
+          <button>25%</button>
+          <button>50%</button>
+          <input onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" placeholder="Custom"></input>
+        </section>
+      </section>
+      <section class="main-left-bottom">
+        <label for="quantity-people">Numer of People</label>
+        <input onkeydown="javascript: return (event.keyCode >= 48 && event.keyCode <= 57) || event.keyCode == 8;" type="text" id="quantity-people" placeholder="0"><img src="/image/icon-person.svg" alt="person">
+      </section>
+    </section>
+    <section class="main-right">
+      <section class="main-right-top-and-mid">
+        <section class="main-right-top">
+          <section class="main-right-top-left">
+            <h6>Tip Amount</h6>
+            <span>/ person</span>
+          </section>
+          <section class="main-right-top-right">
+            <p>$0.00</p>
+          </section>
+        </section>
+        <section class="main-right-mid">
+          <section class="main-right-top-left">
+            <h6>Tip Amount</h6>
+            <span>/ person</span>
+          </section>
+          <section class="main-right-top-right">
+            <p>$0.00</p>
+          </section>
+        </section>
+      </section>
+      <section class="main-right-bottom">
+        <button class="reset-btn">reset</button>
+      </section>
+    </section>
+  </main>
+  <script src="server/server.js"></script>
+</body>
+</html>

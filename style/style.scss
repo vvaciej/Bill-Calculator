@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;1,700&display=swap');
+@import './variables';
+@import './responsbility';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 24px;
+  font-family: 'Space Mono', sans-serif;
+  height: 100%;
+  @include mobile {
+    height: calc(100% + 200px);
+  }
+}
+
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 60px;
+  background-color: $LightGrayishCyan;
+  @include mobile {
+    row-gap: 20px;
+    justify-content: start;
+  }
+}
+
+header {
+  @include mobile {
+    margin-top: 35px;
+  }
+}
+
+
+.container {
+  width: 900px;
+  height: 460px;
+  border-radius: 30px;
+  background-color: $White;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 50px;
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    width: 100%;
+  }
+}
+
+.main-left {
+  padding: 15px;
+  @include mobile {
+    padding: 10px;
+  }
+  label {
+    font-size: 15px;
+    margin-bottom: 8px;
+    color: $DarkGrayishCyan;
+    font-weight: 700;
+  }
+  
+  input {
+    border: 0;
+    outline: 0;
+    background-color: hsl(189, 41%, 95.5%);
+    height: 47px;
+    border-radius: 5px;
+    font-family: 'Space Mono', sans-serif;
+    font-size: 22px;
+    text-align: right;
+    padding-right: 18px;
+    position: relative;
+    color: $DarkGrayishCyan;
+    &::placeholder {
+      opacity: 0.5;
+      color: $DarkGrayishCyan;
+      font-weight: 700;
+    }
+    @include mobile {
+      font-size: 20px;
+    }
+  }
+}
+
+
+button {
+  width: 100%;
+  height: 43px;
+  background-color: $VeryDarkCyan;
+  color: $VeryLightGrayishCyan;
+  font-family: 'Space Mono', sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 20px;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .1s;
+  &:hover {
+    filter: brightness(130%);
+    transition: .1s;
+  }
+  @include mobile {
+    font-size: 17px;
+  }
+}
+
+.main-left-top {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  img {
+    position: absolute;
+    top: 45.5px;
+    left: 20px;
+  }
+}
+
+.main-left-mid {
+  margin-top: 25px;
+}
+
+.main-left-mid-tips {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 13px;
+  row-gap: 8px;
+  input {
+    width: 100%;
+    &::placeholder {
+      padding-left: 3px;
+      width: 100%;
+      @include mobile {
+        padding-left: 10px;
+        text-align: center;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.main-left-bottom {
+  margin-top: 28px;
+  position: relative;
+  input {
+    width: 100%;
+    margin-top: 5px;
+  }
+  img {
+    position: absolute;
+    left: 18px;
+    bottom: 16px;
+  }
+}
+
+.main-right {
+  height: 100%;
+  width: 100%;
+  background-color: $VeryDarkCyan;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  @include mobile {
+    margin-top: 20px;
+  }
+  p {
+    font-size: 45px;
+    color: $StrongCyan;
+    font-weight: 700;
+    @include mobile {
+      font-size: 30px;
+    }
+  }
+  h6 {
+    color: $VeryLightGrayishCyan;
+    font-weight: 700;
+    font-size: 14.5px;
+    display: inline;
+  }
+  span {
+    color: $GrayishCyan;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+}
+
+
+.main-right-top, .main-right-mid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .main-right-top-left {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2px;
+  }
+}
+
+.main-right-mid {
+  margin-top: 30px;
+  @include mobile {
+    margin-top: 15px;
+    margin-bottom: 35px;
+  }
+}
+
+.main-right-bottom {
+  .reset-btn {
+    color: $VeryDarkCyan;
+    width: 100%;
+    height: 43px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    background-color: $StrongCyan;
+    cursor: pointer;
+    transition: .1s;
+    &:hover {
+      transition: .1s;
+      opacity: 0.4;
+    }
+  }
+}
