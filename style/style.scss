@@ -21,9 +21,9 @@ body {
   height: 100%;
   display: flex;
   align-items: center;
-  margin-top: 145px;
+  margin-top: 160px;
   flex-direction: column;
-  row-gap: 60px;
+  row-gap: 50px;
   background-color: $LightGrayishCyan;
   @include tablet {
     justify-content: start;
