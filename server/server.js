@@ -8,7 +8,7 @@ const tips = {
 
 const allInputs = document.querySelectorAll('.input');
 const allErrors = document.querySelectorAll('.null-error');
-let isValidValue;
+let isValidValue = true;
 
 const inputs = {
 	bill: allInputs[0],
@@ -30,7 +30,7 @@ function nullValueInputError () {
   
   allInputs.forEach((element) => {
     const inputValue = element.value.trim();
-    const checkIsValid = inputValue == '0' || parseFloat(inputValue) < 1 || inputValue.startsWith('0');
+    const checkIsValid = parseFloat(inputValue) < 1 || inputValue.startsWith('0');
 
     if (checkIsValid) {
 			element.style.borderColor = 'hsl(0, 100%, 80%)';
@@ -42,7 +42,7 @@ function nullValueInputError () {
 
   allErrors.forEach((element, index) => {
     const inputValue = allInputsFiltered[index].value.trim();
-    const checkIsValid = inputValue == '0' || parseFloat(inputValue) < 1 || inputValue.startsWith('0');
+    const checkIsValid = parseFloat(inputValue) < 1 || inputValue.startsWith('0');
 
     if (checkIsValid) {
 			element.classList.add('active');
@@ -53,8 +53,10 @@ function nullValueInputError () {
 }
 
 function calculateTotalAmount() {
+  const billInputValue = inputs.bill.value;
+  const NumberPeopleInputValue = inputs.numberPeople.value;
   if (isValidValue) {
-    totalAmount = parseFloat((inputs.bill.value / inputs.numberPeople.value).toFixed(2));
+    totalAmount = parseFloat((billInputValue / NumberPeopleInputValue).toFixed(2));
   } else {
     totalAmount = 0;
   }
@@ -63,11 +65,12 @@ function calculateTotalAmount() {
 function updateCustomTip() {
 	const customTipValue = parseFloat(inputs.customTip.value);
 
-	if (!isNaN(totalAmount) && customTipValue > 0) {
+	if (customTipValue > 0) {
 		tipAmount = ((customTipValue / 100) * totalAmount);
 	} else {
 		tipAmount = 0;
 	}
+
 }
 
 function calcBtnTipAmount () {
@@ -99,8 +102,11 @@ function displayAmount () {
   totalText.textContent = formattedTotalAmount;
 }
 
+const allTipBts = document.querySelectorAll('.tipBtn');
+
 function changeBtnColorsWhenClicked (e) {
   inputs.customTip.value = '';
+
   if (selectedIndex !== null) {
     allTipBts[selectedIndex].classList.remove('selected');
   }
@@ -114,12 +120,10 @@ function changeBtnColorsWhenClicked (e) {
     displayAmount();
   } else {
     tipAmount = 0;
-    displayAmount();
     selectedIndex = null;
+    displayAmount();
   }
 }
-
-const allTipBts = document.querySelectorAll('.tipBtn');
 
 allTipBts.forEach(element => {
 	element.addEventListener('click', changeBtnColorsWhenClicked);
@@ -156,7 +160,7 @@ allInputs.forEach(element => {
 
 const resetBtn = document.querySelector('.reset-btn');
 
-function resetAll () {
+resetBtn.addEventListener('click', function () {
   allInputs.forEach(element => {
     element.value = '';
   })
@@ -167,16 +171,19 @@ function resetAll () {
     button.classList.remove('selected');
   })
   selectedIndex = null;
-}
-
-resetBtn.addEventListener('click', resetAll);
+});
 
 function resetTipBtnByCustomTip () {
-  displayAmount();
-  allTipBts.forEach(button => {
-    button.classList.remove('selected');
-	});
-  selectedIndex = null;
+  const customTipValue = inputs.customTip.value.trim();
+
+  if (customTipValue != '') {
+		allTipBts.forEach(button => {
+			button.classList.remove('selected');
+      updateCustomTip();
+		});
+		selectedIndex = null;
+		displayAmount();
+	}
 } 
 
 inputs.customTip.addEventListener('input', resetTipBtnByCustomTip);
